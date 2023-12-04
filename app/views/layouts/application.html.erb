@@ -17,6 +17,17 @@
     <!-- Header NAVBAR -->
     <%= render "partials/header" %>
     <article>
+      <!-- Flash message -->
+      <%
+=begin%>
+ <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p> 
+<%
+=end%>
+      <% flash.each do |name, message| %>
+        <%= content_tag(:div, message, class: "alert alert-info #{name}") %>
+      <% end %>
+
       <div>
         <%= yield %>
       </div>
